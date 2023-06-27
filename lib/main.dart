@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lista_de_tarefas/pages/listaDeTarefas.dart';
 
 void main() => runApp(const MyApp());
 
@@ -11,4 +12,5 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Home(),
     );
+  }
 }
