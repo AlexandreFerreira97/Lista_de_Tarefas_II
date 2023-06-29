@@ -13,7 +13,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   List _toDoList = [];
 
   @override
@@ -24,27 +23,43 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.blueAccent,
         centerTitle: true,
       ),
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.fromLTRB(17.0, 1.0, 7.0, 1.0),
+            child: const Row(
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Nova Tarefa',
+                    labelStyle: TextStyle(color: Colors.blueAccent),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  Future <File> _getFile() async{
+  Future<File> _getFile() async {
     final directory = await getApplicationDocumentsDirectory();
-    return File ('${directory.path}/data.json');
+    return File('${directory.path}/data.json');
   }
 
-  Future <File> _saveData() async{
+  Future<File> _saveData() async {
     String data = json.encode(_toDoList);
     final file = await _getFile();
     return file.writeAsString(data);
   }
 
-  Future <String?> _readData() async{
-    try{
+  Future<String?> _readData() async {
+    try {
       final file = await _getFile();
       return file.readAsString();
-    }catch(e){
+    } catch (e) {
       return null;
     }
   }
 }
-
