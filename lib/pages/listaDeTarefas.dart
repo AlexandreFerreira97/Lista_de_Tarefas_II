@@ -29,10 +29,12 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.fromLTRB(17.0, 1.0, 7.0, 1.0),
             child: const Row(
               children: [
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Nova Tarefa',
-                    labelStyle: TextStyle(color: Colors.blueAccent),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Nova Tarefa',
+                      labelStyle: TextStyle(color: Colors.blueAccent),
+                    ),
                   ),
                 ),
               ],
