@@ -18,7 +18,13 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Lista de Tarefas'),
+        backgroundColor: Colors.blueAccent,
+        centerTitle: true,
+      ),
+    );
   }
 
   Future <File> _getFile() async{
