@@ -27,9 +27,9 @@ class _HomeState extends State<Home> {
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(17.0, 1.0, 7.0, 1.0),
-            child: const Row(
+            child: Row(
               children: [
-                Expanded(
+                const Expanded(
                   child: TextField(
                     decoration: InputDecoration(
                       labelText: 'Nova Tarefa',
@@ -37,6 +37,14 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: const Color(0xFF448AFF),
+                    padding: const EdgeInsets.only(left: 30.0,top: 12.0, right: 30.0,bottom: 12.0),
+                  ),
+                  child: const Text('ADD'),
+                )
               ],
             ),
           ),
