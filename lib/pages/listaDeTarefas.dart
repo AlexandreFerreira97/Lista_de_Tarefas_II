@@ -51,13 +51,19 @@ class _HomeState extends State<Home> {
           ),
           Expanded(
             child: ListView.builder(
-                padding: const EdgeInsets.only(top: 10.0),
-                itemCount: _toDoList.length,
-                itemBuilder: (context,index){
-                  return ListTile(
-                    title: Text(_toDoList[index]),
-                  );
-                }
+              padding: const EdgeInsets.only(top: 10.0),
+              itemCount: _toDoList.length,
+              itemBuilder: (context, index) {
+                return CheckboxListTile(
+                  title: Text(_toDoList[index]['title']),
+                  value: _toDoList[index]['ok'],
+                  secondary: CircleAvatar(
+                    child: Icon(
+                        _toDoList[index]['ok'] ? Icons.check : Icons.error),
+                  ),
+                  onChanged: (bool? value) {},
+                );
+              },
             ),
           ),
         ],
