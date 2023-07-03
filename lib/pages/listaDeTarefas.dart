@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:async';
@@ -16,6 +15,17 @@ class _HomeState extends State<Home> {
   final _toDoController = TextEditingController();
 
   List _toDoList = [];
+
+  @override
+  void initState(){
+    super.initState();
+
+    _readData().then((data) {
+      setState(() {
+        _toDoList = json.decode(data!);
+      });
+    });
+  }
 
   void _addToDo(){
       setState(() {
