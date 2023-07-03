@@ -17,8 +17,14 @@ class _HomeState extends State<Home> {
 
   List _toDoList = [];
 
-  void addToDo(){
-
+  void _addToDo(){
+      setState(() {
+        Map<String, dynamic> newToDo = Map();
+        newToDo['title'] = _toDoController;
+        _toDoController.text = '';
+        newToDo['ok'] = false;
+        _toDoList.add(newToDo);
+      });
   }
 
   @override
@@ -45,7 +51,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: _addToDo,
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xFF448AFF),
                     padding: const EdgeInsets.only(
@@ -69,6 +75,7 @@ class _HomeState extends State<Home> {
                         _toDoList[index]['ok'] ? Icons.check : Icons.error),
                   ),
                   onChanged: (bool? value) {
+                    _toDoList[index]['ok'] = value;
                   },
                 );
               },
